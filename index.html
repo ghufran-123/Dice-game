@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg">
+        <h1 class=".h1 fw-bold">
+            Lets Try Your Luck!!
+        </h1>
+        <input type="text" style="margin-left: 34.7%;" name="" id="p1Name" placeholder="Enter Player 1 Name">
+        <input type="text" name="" id="p2Name" placeholder="Enter Player 2 Name">
+        <br>
+        <br>
+        <button class="center btn btn-primary">Start</button>
+    </div>
+
+    <div class="row container-fluid invisible">
+       
+        <div class="col-4">
+                <center>
+                    <h3 id="win1">Player One</h3>
+                <img src="./New folder/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" alt="">
+                <h3 id="p1">
+                    <br>
+                    Player 1 Name
+                </h3>
+                </center>
+        </div>
+
+        <div class="col-4">
+            <center>
+                <h4 id="num">Numbers</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="container" id="p1No">P1 No</h5>
+                    </div>    
+                    <div class="col-6">
+                        <h5 class="container" id="p2No">P2 No</h5>
+                    </div>    
+                </div>
+                <button class="btn btn-outline-dark" id="st">Start</button>
+                
+            </center>
+            
+    </div>
+        
+        <div class="col-4">
+                <center>
+                    <h3 id="win2">Player Two</h3>
+                <img src="./New folder/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" alt="">
+                <h3 id="p2">
+                    <br>
+                    Player 2 Name
+                </h3>
+                </center>
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+    document.querySelector(".center").addEventListener("click",start);
+    document.querySelector("#st").addEventListener("click",Dice);
+    p1Name=document.querySelector("#p1Name").value;
+    p2Name=document.querySelector("#p2Name").value;
+    function start()
+    {
+        document.querySelector("#p1").innerHTML=p1Name;
+        document.querySelector("#p2").innerHTML=p2Name;
+        document.querySelector(".invisible").classList.toggle("invisible");
+
+    }
+
+    function Dice()
+    {
+        var p1No=Math.round(Math.random()*6);
+        var p2No=Math.round(Math.random()*6);
+        document.querySelector("#p1No").innerHTML=p1No;
+        document.querySelector("#p2No").innerHTML=p2No;
+        if(p1No>p2No)
+        {
+            document.querySelector("#win1").innerHTML="Winner";
+            document.querySelector("#win2").innerHTML="Player two";
+        }
+        else if(p1No<p2No)
+        {
+            document.querySelector("#win2").innerHTML="Winner";
+            document.querySelector("#win1").innerHTML="Player One";
+        }
+        else
+        {
+            document.querySelector("#win1").innerHTML="Player One";
+            document.querySelector("#win2").innerHTML="Player two";
+            document.querySelector("#num").innerHTML="Draw";
+        }
+        
+    }
+
+
+</script>
+</html>
